@@ -12,7 +12,7 @@ if (number < 0) {
 
 let hari = "Minggu";
 
-switch (hari.toLowerCase()) {
+switch (hari.toLowerCase()) { // buat huruf kecil semua
   case "sabtu":
   case "minggu":
     console.log("Weekend");
@@ -21,7 +21,7 @@ switch (hari.toLowerCase()) {
     console.log("Weekday");
 }
 
-for (let i = 1; i <= 15; i++) {
+for (let i = 1; i <= 15; i++) { // i sbg var , i ke-2
   if (i % 3 === 0 && i % 5 === 0) {
     console.log("FizzBuzz");
   } else if (i % 3 === 0) {

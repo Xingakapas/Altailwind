@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas8</title>
+</head>
+<body>
+    <p id="output"></p>
+
+    <script>
+        // Membuat objek literal person
+        let person = {
+            name: "John Doe",
+            age: 30,
+            city: "Jakarta"
+        };
+
+        // Mengubah nilai age
+        person.age = person.age + 5;
+        delete person.city;
+
+        // Menampilkan hasil ke elemen dengan id "output"
+        document.getElementById("output").textContent = `Nama: ${person.name}, Umur: ${person.age}`;
+    </script>
+</body>
+</html>
