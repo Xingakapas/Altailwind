@@ -5,7 +5,7 @@
 </head>
 <body>
     <p id="output"></p>
-
+    
     <script>
         // Membuat objek literal person
         let person = {
@@ -16,10 +16,11 @@
 
         // Mengubah nilai age
         person.age = person.age + 5;
-        delete person.city;
+        delete person.city;//Baris ini ngahapus properti city dari objek person. abis eksekusi baris ini,
+                            //objek person  gk punya lagi properti city.
 
         // Menampilkan hasil ke elemen dengan id "output"
         document.getElementById("output").textContent = `Nama: ${person.name}, Umur: ${person.age}`;
     </script>
-</body>
+</bo
 </html>
