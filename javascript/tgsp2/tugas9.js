@@ -26,7 +26,7 @@ class Kendaraan {
   console.log("Kecepatan mobil sekarang:", mobil.getKecepatan());
   
   // Mencoba mengatur kecepatan menjadi -50
-  mobil.setKecepatan(-50);
+  mobil.setKecepatan(-50) ;
   console.log("Kecepatan mobil sekarang:", mobil.getKecepatan());
   
   class Karyawan {
@@ -42,8 +42,10 @@ class Kendaraan {
   
     setNama(nama) {
       this.nama = nama;
-    }
-  
+
+
+    } 
+  x
     getGaji() {
       return this.gaji;
     }
@@ -127,7 +129,6 @@ class AkunBank {
     constructor(saldoAwal) {
       this._saldo = saldoAwal;
     }
-  
 
     /**
      * Mendapatkan nilai saldo akun bank.
@@ -194,3 +195,4 @@ class AkunBank {
       console.log(i);
     }
   }   
+  
