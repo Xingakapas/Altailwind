@@ -18,7 +18,7 @@ function klasifikasiNilai(nilai, kehadiran, totalPertemuan) {
       if (persentaseKehadiran >= 75) {
         console.log("Kategori C: Lulus");
       } else {
-        console.log("Kategori C: Tidak Lulus");
+        console.log("Kategori C: Tidak Lulus"); 
       }
     } else {
       console.log("Tidak Lulus");
@@ -44,6 +44,6 @@ function syaratKursus(terdaftar, pembayaranSukses) {
   syaratKursus(false, true); 
   syaratKursus(true, false); 
   syaratKursus(false, false); 
-  
+    
 
   

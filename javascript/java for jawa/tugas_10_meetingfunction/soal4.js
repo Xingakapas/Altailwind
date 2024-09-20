@@ -18,10 +18,10 @@ function calculateTax(price, location) {
       console.log(`Pembayaran berhasil! Total pembayaran: Rp${finalPrice.toLocaleString('id-ID')}`);
     } else {
       console.log("Pembayaran belum selesai.");
-    }
+    }a
   }
   
-  // Contoh penggunaan:
+  // Contoh penggunaan:    
   let price = 1000;
   let location = "Jakarta";
   
