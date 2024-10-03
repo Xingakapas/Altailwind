@@ -10,4 +10,4 @@ function multiply(a, b) {
     return a / b;
   }
   
-  export { multiply as kali, divide as bagi };
+  export { multiply as kali, divide as bagi };u 

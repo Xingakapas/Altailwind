@@ -1,5 +1,5 @@
 // app.js
-import getUser, { userRole, getUserRole } from './userutils.js';
+import getUser, { userRole, getUserRole } from './userutils.jsu';
 
 console.log(getUser('John Doe'));
 console.log('UserRole:', userRole);
