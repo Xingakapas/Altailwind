@@ -6,3 +6,4 @@ function kelompokkanBilangan(bilangan) {}
     } else {
       return "bilangan ganjil";
     }
+//ulangan
