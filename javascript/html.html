@@ -33,3 +33,96 @@
     </script>
   </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perbandingan Angka</title>
+</head>
+<body>
+    <script>
+        // Meminta input dari pengguna
+        let angka = prompt("Masukkan sebuah angka:");
+
+        // Mengubah input menjadi angka (jika perlu)
+        angka = parseInt(angka);
+
+        // Memeriksa nilai angka
+        if (angka > 10) {
+            alert("Angka yang Anda masukkan lebih besar dari 10.");
+        } else if (angka < 10) {
+            alert("Angka yang Anda masukkan lebih kecil dari 10.");
+        } else {
+            alert("Angka yang Anda masukkan sama dengan 10.");
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Box</title>
+</head>
+<body>
+    <script>
+        // Menampilkan confirm box saat halaman dimuat
+        let konfirmasi = confirm("Apakah Anda yakin ingin melanjutkan?");
+
+        // Memeriksa pilihan pengguna
+        if (konfirmasi) {
+            // Jika pengguna memilih OK
+            alert("Anda memilih OK!");
+        } else {
+            // Jika pengguna memilih Cancel
+            alert("Anda memilih Cancel!");
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meminta Nama Pengguna</title>
+</head>
+<body>
+    <script>
+        // Meminta nama pengguna
+        let nama = prompt("Masukkan nama Anda:");
+
+        // Memeriksa apakah nama telah dimasukkan
+        if (nama) {
+            // Jika nama dimasukkan, tampilkan salam
+            alert("Halo, " + nama + "! Senang bertemu dengan Anda.");
+        } else {
+            // Jika nama tidak dimasukkan, tampilkan pesan
+            alert("Anda belum memasukkan nama.");
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kombinasi Popup</title>
+</head>
+<body>
+    <script>
+        // Menampilkan alert selamat datang
+        alert("Selamat datang!");
+
+        // Menanyakan apakah ingin memasukkan nama
+        let inginMasukNama = confirm("Apakah Anda ingin memasukkan nama?");
+
+        // Jika ingin memasukkan nama
+        if (inginMasukNama) {
+            let nama = prompt("Masukkan nama Anda:");
+            alert("Halo, " + nama + "! Senang bertemu dengan Anda.");
+        } else {
+            // Jika tidak ingin memasukkan nama
+            alert("Terima kasih sudah berkunjung!");
+        }
+    </script>
+</body>
+</html>
