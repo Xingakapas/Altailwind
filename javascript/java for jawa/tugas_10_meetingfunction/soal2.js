@@ -18,7 +18,7 @@ function calculatePrice(quantity, pricePerItem, isMember) {
   // Input dari pengguna
   let quantity = parseInt(prompt("Masukkan jumlah barang:"));
   let pricePerItem = parseFloat(prompt("Masukkan harga per barang:"));
-  let isMember = confirm("Apakah Anda anggota? (OK = ya, Cancel = tidak)");
+  let isMember = confirm("Apakah Anda anggota? (OK = ya, Cancel = tidak)");   
   
   // Hitung total harga
   let totalPrice = calculatePrice(quantity, pricePerItem, isMember);

@@ -7,3 +7,7 @@ function kelompokkanBilangan(bilangan) {}
       return "bilangan ganjil";
     }
 //ulangan
+
+
+
+ 
