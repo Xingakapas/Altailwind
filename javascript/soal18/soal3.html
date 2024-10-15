@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penghitung Klik</title>
+</head>
+<body>
+    <button id="myButton">Klik Saya</button>
+    <p id="jumlahKlik">Jumlah Klik: 0</p>
+
+    <script>
+        // Ambil elemen tombol dan elemen paragraf
+        const tombol = document.getElementById('myButton');
+        const jumlahKlikElement = document.getElementById('jumlahKlik');
+
+        // Inisialisasi variabel untuk menyimpan jumlah klik
+        let jumlahKlik = 0;
+
+        // Tambahkan event listener untuk tombol
+        tombol.addEventListener('click', function() {
+            // Tingkatkan jumlah klik
+            jumlahKlik++;
+
+            // Perbarui teks pada elemen paragraf
+            jumlahKlikElement.textContent = `Jumlah Klik: ${jumlahKlik}`;
+        });
+    </script>
+</body>
+</html>

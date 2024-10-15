@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas JavaScript</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        button {
+            margin: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Tampilkan Pesan</button>
+
+    <script>
+        // Konfirmasi awal
+        if (confirm("Apakah Anda ingin melanjutkan?")) {
+            alert("Selamat datang di halaman!");
+
+            // Fungsi untuk meminta nama
+            function mintaNama() {
+                const nama = prompt("Masukkan nama Anda:");
+                if (nama) {
+                    alert("Halo, " + nama + "!");
+                } else {
+                    if (confirm("Apakah Anda ingin mencoba lagi?")) {
+                        mintaNama();
+                    } else {
+                        alert("Terima kasih!");
+                    }
+                }
+            }
+
+            // Panggil fungsi mintaNama ketika tombol diklik
+            document.getElementById("myButton").addEventListener("click", mintaNama);
+        } else {
+            alert("Anda memilih untuk tidak melanjutkan.");
+        }
+    </script>
+</body>
+</html>

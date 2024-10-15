@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas Event Listener</title>
+</head>
+<body>
+    <button id="myButton">Klik Saya</button>
+
+    <script>
+        // Fungsi untuk menampilkan alert
+        function showAlert() {
+            alert("Tombol berhasil diklik!");
+        }
+
+        // Ketika halaman selesai dimuat
+        window.onload = function() {
+            // Ambil elemen tombol
+            const tombol = document.getElementById('myButton');
+
+            // Tambahkan event listener untuk tombol
+            tombol.addEventListener('click', showAlert);
+        }
+    </script>
+</body>
+</html>
