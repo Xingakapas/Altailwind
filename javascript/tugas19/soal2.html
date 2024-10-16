@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>kostum epent</title>
+</head>
+<body>
+    <div id="parent">
+        <button id="myButton">Pencetlah</button>
+    </div>
+
+    <script>
+        // Definisikan custom event
+        const buttonClicked = new CustomEvent('buttonClicked');
+
+        // Fungsi untuk menangani klik tombol
+        function handleButtonClick() {
+            console.log("Button was clicked!");
+            // Micu custom event
+            document.dispatchEvent(buttonClicked);
+        }
+
+        // Fungsi untuk menangani event pada div parent
+        function handleParentClick() {
+            console.log("Parent div received the event!");
+        }
+
+        // Dapatkan elemen dengan ID "parent" dan "myButton"
+        const parentDiv = document.getElementById('parent');
+        const myButton = document.getElementById('myButton');
+
+        // Tambahkan event listener ke tombol
+        myButton.addEventListener('click', handleButtonClick);
+
+        // Tambahkan event listener ke div parent untuk menangani custom event
+        parentDiv.addEventListener('buttonClicked', handleParentClick);
+    </script>
+</body>
+</html>

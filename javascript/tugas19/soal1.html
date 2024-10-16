@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CTugas kostum</title>
+</head>
+<body>
+    <button id="triggerButton">Triger kostum</button>
+
+    <script>
+        // Definisikan custom event
+        const customClickEvent = new CustomEvent('customClick');
+
+        // Fungsi untuk menangani custom event
+        function handleCustomClick() {
+            console.log("Custom click event triggered!");
+            alert("Custom click event triggered!");
+        }
+
+        // Tambahkan event listener untuk custom event
+        document.addEventListener('customClick', handleCustomClick);
+
+        // Dapatkan elemen tombol dengan ID "triggerButton"
+        const triggerButton = document.getElementById('triggerButton');
+
+        // Tambahkan event listener untuk tombol, memicu custom event saat diklik
+        triggerButton.addEventListener('click', () => {
+            // Dispatch custom event
+            document.dispatchEvent(customClickEvent);
+        });
+    </script>
+</body>
+</html>
