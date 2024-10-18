@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soal Praktik Kombinasi Popup</title>
+</head>
+<body>
+    <script>
+        // Fungsi utama untuk menjalankan semua langkah
+        function mulai() {
+            // Alert selamat datang
+            alert("Selamat datang!");
+
+            // Confirm untuk bertanya apakah ingin memasukkan nama
+            let inginMasukkanNama = confirm("Apakah Anda ingin memasukkan nama?");
+
+            if (inginMasukkanNama) {
+                // Prompt untuk meminta nama
+                let nama = prompt("Masukkan nama Anda:");
+
+                // Alert sapaan dengan nama
+                alert("Halo, " + nama + "! Senang bertemu dengan Anda.");
+            } else {
+                // Alert ucapan terima kasih
+                alert("Terima kasih sudah berkunjung!");
+            }
+        }
+
+        // Memanggil fungsi saat halaman dimuat
+        mulai();
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soal Praktik Confirm Box</title>
+</head>
+<body>
+    <script>
+        // Fungsi untuk menampilkan confirm box dan memberikan alert
+        function tampilkanConfirm() {
+            let pilihan = confirm("Apakah Anda yakin ingin melanjutkan?");
+
+            if (pilihan) {
+                alert("Anda memilih OK!");
+            } else {
+                alert("Anda memilih Cancel!");
+            }
+        }
+
+        // Memanggil fungsi saat halaman dimuat
+        tampilkanConfirm();
+    </script>
+</body>
+</html>
