@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+        background-color: #f3feb8;
+        transition: background-color 0.3s;
+      }
+      .content-container {
+        background-color: #ffde4d;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .inbox-content,
+      .history-content {
+        background-color: #ffb22c;
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 10px;
+        color: #000;
+      }
+      .task-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        color: #000;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .task-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      .delete-btn {
+        color: #000;
+        transition: color 0.3s;
+        padding: 8px 12px; /* Tambahkan padding untuk memperbesar area tombol */
+        border-radius: 5px; /* Menambahkan sudut membulat */
+      }
+      .delete-btn:hover {
+        color: #ff0000;
+        background-color: rgba(
+          255,
+          0,
+          0,
+          0.1
+        ); /* Efek latar belakang saat hover */
+      }
+      #task-input {
+        border: 2px solid #ffb22c;
+        transition: border-color 0.3s;
+      }
+      #task-input:focus {
+        border-color: #ff9a00 !important;
+        outline: none;
+      }
+      .success-message {
+        color: green;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .custom-checkbox {
+        width: 24px; /* Ukuran checkbox */
+        height: 24px; /* Ukuran checkbox */
+        margin-right: 10px; /* Jarak antara checkbox dan teks tugas */
+      }
+    </style>
+  </head>
+  <body class="flex flex-col items-center justify-center min-h-screen">
+    <div class="content-container w-11/12 max-w-4xl">
+      <div class="text-center mb-6">
+        <h1 class="text-4xl font-bold mb-2">To-Do List</h1>
+        <p class="text-xl">Silahkan buat plan anda disini!</p>
+      </div>
+
+      <div class="relative mb-6 flex justify-center">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Ketuk enter untuk input tugas"
+          class="border-2 rounded-lg py-2 px-4 w-96 text-center"
+        />
+      </div>
+
+      <div class="inbox-content">
+        <h2 class="text-lg font-bold mb-4">Daftar Tugas:</h2>
+        <div id="task-list" class="grid grid-cols-1 gap-4"></div>
+        <p
+          id="empty-task-message"
+          class="text-center text-gray-800 mt-4 hidden"
+        >
+          Daftar tugas kosong, silahkan tambahkan tugas
+        </p>
+        <p id="success-message" class="success-message hidden">
+          Tugas berhasil ditambahkan!
+        </p>
+      </div>
+
+      <div class="history-content mt-6">
+        <h2 class="text-lg font-bold mb-4">Riwayat Tugas:</h2>
+        <div id="history-list" class="grid grid-cols-1 gap-4"></div>
+        <p
+          id="empty-history-message"
+          class="text-center text-gray-800 mt-4 hidden"
+        >
+          Riwayat kosong, silahkan selesaikan tugas
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let taskList = [];
+      let historyList = [];
+
+      document
+        .getElementById("task-input")
+        .addEventListener("keypress", function (event) {
+          if (event.key === "Enter" && this.value.trim()) {
+            const taskItem = {
+              id: Date.now(),
+              task: this.value,
+              completed: false,
+              timestamp: new Date().toLocaleString(),
+            };
+            taskList.push(taskItem);
+            this.value = "";
+
+            renderTaskList();
+
+            const successMessage = document.getElementById("success-message");
+            successMessage.classList.remove("hidden");
+            setTimeout(function () {
+              successMessage.classList.add("hidden");
+            }, 2000);
+          }
+        });
+
+      function renderTaskList() {
+        const taskListElement = document.getElementById("task-list");
+        taskListElement.innerHTML = "";
+        taskList.forEach((task) => {
+          const taskItemElement = document.createElement("div");
+          taskItemElement.className = "task-item";
+          taskItemElement.innerHTML = `
+            <input type="checkbox" class="custom-checkbox" ${
+              task.completed ? "checked" : ""
+            } data-id="${task.id}">
+            <span ${task.completed ? 'class="completed"' : ""}>${
+            task.task
+          }</span>
+            <button class="delete-btn" data-id="${task.id}">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          `;
+          taskListElement.appendChild(taskItemElement);
+        });
+      }
+
+      document
+        .getElementById("task-list")
+        .addEventListener("click", function (event) {
+          const taskId =
+            event.target.closest("button")?.getAttribute("data-id") ||
+            event.target.closest("input")?.getAttribute("data-id");
+          if (!taskId) return;
+
+          const taskIndex = taskList.findIndex(
+            (task) => task.id === parseInt(taskId)
+          );
+
+          if (event.target.classList.contains("delete-btn")) {
+            taskList.splice(taskIndex, 1);
+            renderTaskList();
+          }
+
+          if (event.target.classList.contains("custom-checkbox")) {
+            taskList[taskIndex].completed = !taskList[taskIndex].completed;
+            if (taskList[taskIndex].completed) {
+              historyList.push(taskList[taskIndex]);
+              taskList.splice(taskIndex, 1);
+              renderTaskList();
+              renderHistoryList();
+            }
+          }
+        });
+
+      function renderHistoryList() {
+        const historyListElement = document.getElementById("history-list");
+        historyListElement.innerHTML = "";
+        historyList.forEach((task) => {
+          const taskItemElement = document.createElement("div");
+          taskItemElement.className = "task-item";
+          taskItemElement.innerHTML = `
+            <span class="completed">${task.task}</span>
+            <div class="flex items-center gap-2">
+              <span>${task.timestamp}</span>
+              <button class="delete-btn" data-id="${task.id}">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          `;
+          historyListElement.appendChild(taskItemElement);
+        });
+      }
+
+      document
+        .getElementById("history-list")
+        .addEventListener("click", function (event) {
+          if (event.target.classList.contains("delete-btn")) {
+            const taskId = event.target.getAttribute("data-id");
+            historyList = historyList.filter(
+              (task) => task.id !== parseInt(taskId)
+            );
+            renderHistoryList();
+          }
+        });
+    </script>
+  </body>
+</html>
