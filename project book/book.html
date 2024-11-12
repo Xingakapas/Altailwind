@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.TG.ject</title>
+    <style>
+        /* Gaya dasar untuk buku */
+.bookItem {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Gaya untuk judul buku */
+.bookItemTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Gaya untuk informasi penulis dan tahun rilis */
+.bookItemAuthor, .bookItemYear {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Gaya untuk tombol */
+.bookItem button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.bookItemIsCompleteButton {
+  background-color: #4CAF50; /* Hijau */
+  color: white;
+}
+
+.bookItemDeleteButton {
+  background-color: #f44336; /* Merah */
+  color: white;
+}
+
+.bookItemEditButton {
+  background-color: #2196F3; /* Biru */
+  color: white;
+}
+    </style>
+</head>
+<body>
+    <div data-bookid="{{ ID_buku }}" data-testid="bookItem">
+        <h3 data-testid="bookItemTitle">{{ judul_buku }}</h3>
+        <p data-testid="bookItemAuthor">Penulis: {{ penulis_buku }}</p>
+        <p data-testid="bookItemYear">Tahun: {{ tahun_rilis_buku }}</p>
+        <div>
+          <button data-testid="bookItemIsCompleteButton">{{ tombol_untuk_ubah_kondisi }}</button>
+          <button data-testid="bookItemDeleteButton">{{ tombol_untuk_hapus }}</button>
+          <button data-testid="bookItemEditButton" class="bookItemEditButton">{{ tombol_untuk_edit }}</button>
+        </div>
+      </div>
+      
+</body>
+</html> 
+
